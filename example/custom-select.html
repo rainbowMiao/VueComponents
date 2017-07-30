@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="components.css">
+</head>
+<body>
+    <div id="app">
+        <div class="fl" style="margin-right:10px">
+            <h2>第一个下拉列表</h2>
+            <custom-select btn="GO" :list="list1"></custom-select>
+        </div>
+        <div class="fl">
+            <h2>第二个下拉列表</h2>
+            <custom-select btn="search" :list="list2"></custom-select>
+        </div>
+    </div>
+    <script src="components.js"></script>
+    <script>
+        Vue.component('custom-select',{
+            data:function(){
+                return {
+                    isSelect:false,
+                    val:''
+                }
+            },
+            props:['btn','list'],
+            template:`
+                <section class="select">
+                    <div class="contain">
+                        <div class="clearFix">
+                            <input type="text" class="keyword fl" @click="isSelect=!isSelect" :value="val" >
+                            <input type="button" :value="btn" class="fl search">
+                        </div>
+                        <custom-list v-show="isSelect" :list="list" @recive="innerContent"></custom-list>
+                    </div>
+                </section>
+            `,
+            methods:{
+                innerContent(value){
+                    this.val=value;
+                }
+            }
+        });
+        Vue.component("custom-list",{
+            props:['list'],
+            template:`
+                        <ul class="list">
+                            <li v-for="item in list" @click="selectValue(item)">{{item}}</li>
+                        </ul>
+            `,
+            methods:{
+                selectValue(item){
+                    this.$emit('recive',item);
+                }
+            }
+        });
+        new Vue({
+            el:"#app",
+            data:{
+                list1:['北京','上海','广州','上海'],
+                list2:['17-7-12','17-7-18','17-7-30']
+            }
+        })
+    </script>
+</body>
+</html>

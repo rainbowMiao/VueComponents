@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="ele">
+    <template v-if="loginMethod=='username'">
+        <label>用户名</label>
+        <input type="text" placeholder="请输入你的用户名" key="login-username">
+    </template>
+    <template v-else>
+        <label>email</label>
+        <input type="email" placeholder="请输入你的email" key="login-email">
+    </template>
+    <br>
+    <button @click="tab">点击切换登录方式</button>
+</div>
+<script>
+    var vm=new Vue({
+        el:"#ele",
+        data:{
+            loginMethod:'username'
+        },
+        methods:{
+            tab(){
+                return this.loginMethod=this.loginMethod=='username'? 'email' : 'username'
+            }
+        }
+    })
+</script>
+</body>
+</html>

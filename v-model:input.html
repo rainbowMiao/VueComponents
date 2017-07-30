@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="ele">
+        <input type="number" v-model="message"><br>
+        <span>输出信息：{{message}}</span>
+    </div>
+    <script>
+        new Vue({
+            el:"#ele",
+            data:{
+                message:''
+            }
+        })
+    </script>
+</body>
+</html>

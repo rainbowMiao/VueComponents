@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="ele">
+        <select name="" multiple id="select" v-model="selected">
+            <option value="" disabled>请选择</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+        </select><br>
+        <span>{{selected}}</span>
+    </div>
+    <script>
+        new Vue({
+            el:"#ele",
+            data:{
+                selected:[]
+            }
+        })
+    </script>
+</body>
+</html>

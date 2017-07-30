@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="ele">
+        <span :title="message">hello world</span>
+    </div>
+    <script>
+        var vm=new Vue({
+            el:"#ele",
+            data:{
+                message:new Date()
+            }
+        })
+    </script>
+</body>
+</html>

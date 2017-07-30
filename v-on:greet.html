@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="ele">
+        <button @click="greet">greet</button>
+    </div>
+    <script>
+        new Vue({
+            el:"#ele",
+            data:{
+                name:"vue"
+            },
+            methods:{
+                greet:function(event){
+                    alert("Hello"+this.name);
+                    if(event){
+                        alert(event.target.tagName)
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

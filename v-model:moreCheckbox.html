@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="ele">
+        <input type="checkbox" value="jack" v-model="checkNames">
+        <label for="jack">jack</label>
+        <input type="checkbox" value="jone" v-model="checkNames">
+        <label for="jone">jone</label>
+        <input type="checkbox" value="mike" v-model="checkNames">
+        <label for="mike">mike</label><br>
+        <span>{{checkNames}}</span>
+    </div>
+    <script>
+        new Vue({
+            el:"#ele",
+            data:{
+                checkNames:[]
+            }
+        })
+    </script>
+</body>
+</html>

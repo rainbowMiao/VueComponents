@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="ele">
+        <!--javascript表达式-->
+        <!--<p>{{message.split('').reverse().join('')}}</p>-->
+        <p>{{message | capitalize}}</p>
+        <p @click="reversemessage">点我翻转上述信息</p>
+    </div>
+    <script>
+        new Vue({
+            el:"#ele",
+            data:{
+                message:"hello world"
+            },
+            methods:{
+                reversemessage(){
+//                    用于颠倒数组中元素的顺序
+                    this.message=this.message.split('').reverse().join('');
+                }
+            },
+            filters:{
+                capitalize(value){
+                    if(!value) return '';
+//                        value=value.toString();
+                    return value.charAt(0).toUpperCase()+value.slice(1);
+                }
+
+            }
+        })
+    </script>
+</body>
+</html>

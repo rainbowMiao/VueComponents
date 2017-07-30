@@ -1,0 +1,15 @@
+*{margin: 0;padding: 0}
+li{list-style: none}
+.fl{float: left}
+.fr{float: right}
+.clearFix{content: '';clear: both;overflow: hidden}
+/*自定义下拉列表组件css*/
+.select{width:400px;min-height:120px;max-height:400px;background: url("img/select.jpg") no-repeat;background-size: 100% 100%;overflow: hidden} /*给子元素设置margin-top会影响父元素的显示，导致父元素上方出现上边距，给父或祖先元素添加border或者padding或overflow:hidden即可*/
+.select .contain{width:310px;min-height:30px;max-height:310px;padding:20px;margin:25px;background: #def;border-radius: 30px}
+.select .keyword,.select .search{height:32px;line-height: 32px;padding-left: 10px;border-radius: 30px;border:none;}
+.select .contain .keyword{width:240px;outline: none;margin-right: 10px}
+.select .search{width:50px;background: #fff;font-size: 16px;padding-left: 0;color: #666}
+.select .search:hover{background: #ff6600;color: #fff;cursor: pointer;transition: 0.2s}
+.select .list{margin-top: 10px;padding-left: 10px;height:265px;overflow-y: scroll}
+.select .list li{display:block;height:30px;line-height: 30px}
+.select .list li:hover{background-color: #ddd;cursor: pointer}

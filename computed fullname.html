@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="ele">
+        <p>{{fullname}}</p>
+    </div>
+    <script>
+        new Vue({
+            el:"#ele",
+            data:{
+                firstname:"Bar",
+                lastname:'Foo'
+            },
+            computed:{
+                fullname(){
+                    return this.firstname+' '+this.lastname
+                }
+            }
+        })
+    </script>
+</body>
+</html>

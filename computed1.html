@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="ele">
+        <p>{{message}}</p>
+        <p>{{reverseMessage}}</p>
+        <p>{{now}}</p>
+    </div>
+    <script>
+        var vm=new Vue({
+            el:"#ele",
+            data:{
+                message:'hello world'
+            },
+            computed:{
+                reverseMessage(){
+                    return this.message.split('').reverse().join('');
+                },
+                now(){
+                    return Date.now()
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="ele2">
+        <todo-btn :btn="搜索"></todo-btn>
+        <todo-btn :btn="查询"></todo-btn>
+    </div>
+    <script>
+        Vue.component('todo-btn',{
+            props:['btn'],
+            template:'<button>{{btn}}</button>'
+        }),
+        new Vue({
+            el:"#ele2"
+        })
+    </script>
+</body>
+</html>

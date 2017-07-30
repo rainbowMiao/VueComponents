@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin:0;padding:0}
+        li{list-style: none}
+        #pagetop{height:60px;line-height: 60px;background: #f60;}
+        #pagetop h3{width:800px;margin: 0 auto;font-size: 20px;color: #fff}
+        .main{width:800px;margin: 0 auto}
+        .main h2{font-size: 18px;margin: 10px 0}
+        .enter{width:786px;height:46px;line-height: 46px;  padding-left: 10px;font-size: 16px}
+        .list-todo{/*position:relative;left:400px;*/width:800px;height:60px;line-height:60px;}
+        .list-todo .left{float: left;width:400px;}
+        .list-todo a{display: inline-block;width: 100px;height:30px;line-height: 30px;margin-left:20px;color: #666;text-decoration: none;border: 1px solid #fff;text-align: center}
+        .list-todo a.active{border: 1px solid #ff6600}
+        .list{margin-top: 10px}
+        .list li{width:800px;margin: 8px 0}
+        .list label{color: #666}
+        .list .destory{float: right}
+        .list .under{text-decoration: line-through;color: #ddd}
+        .list .edit{display: none;width: 400px;height:30px;line-height: 30px;padding-left:10px}
+        .main p{color:#999;font-size: 14px;margin-bottom: 5px}
+        .main hr{border-color: #fff}
+        .editing div{display: none}
+        .editing .edit{display:block}
+    </style>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="pagetop">
+        <h3>任务计划列表</h3>
+    </div>
+    <div class="main">
+        <h2>添加任务</h2>
+        <input class="enter" type="text" placeholder="请输入内容，然后按enter键确认" @keyup.enter="addTodos" v-model="todo">
+        <ul class="list-todo" v-show="list.length">
+            <li class="left">还有
+                {{checkedLength
+
+                }}个未完成任务</li>
+            <li>
+                <a href="#all" :class="{active:visibility=='all'}">所有任务</a>
+                <a href="#unfinished" :class="{active:visibility=='unfinished'}">未完成的任务</a>
+                <a href="#finished" :class="{active:visibility=='finished'}">完成的任务</a>
+            </li>
+        </ul>
+        <h2>任务列表</h2>
+        <p v-show="!list.length">还没有添加任何任务</p>
+        <hr>
+        <ul class="list" v-show="list.length">
+            <li v-for="item in filterHash" :class="{editing:item===edtorTodo}">
+                <div>
+                    <input type="checkbox" v-model="item.checked">
+                    <label for="title" :class="{under:item.checked}" @dblclick="edtor(item)">{{item.title}}</label>
+                    <button class="destory" v-show="item.checked" @click="deleteTodo(item)">删除</button>
+                </div>
+                <input type="text"
+                       v-focus="edtorTodo===item"
+                       @blur="edtored(item)"
+                       @keyup.enter="edtored(item)"
+                       @keyup.esc="cancelEdtor(item)"
+                       class="edit"
+                        v-model="item.title">
+            </li>
+        </ul>
+    </div>
+    <script src="todo-list.js"></script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+

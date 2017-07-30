@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <ul id="ele">
+        <template  v-for="(list,index) of lists">
+            <li>
+                {{index}}-{{list.message}}
+                <!--{{list}}-->
+            </li>
+        </template>
+    </ul>
+    <script>
+        var vm=new Vue({
+            el:"#ele",
+            data:{
+                lists:[
+                    {message:"Boo"},
+                    {message:'Foo'}
+//                    'Boo','Foo'
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>

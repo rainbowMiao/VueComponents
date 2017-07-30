@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="ele">
+        <ul>
+            <li v-for="(key,value) in objectNew">
+               {{value}} : {{key}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el:"#ele",
+            data:{
+                objectNew:{
+                    firstname:'boo',
+                    lastname:'foo'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

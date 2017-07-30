@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="ele">
+        <div v-html="rawHtml">hello</div>
+    </div>
+    <script>
+        new Vue({
+            el:"#ele",
+            data:{
+                rawHtml:'<span>miaomiao</span>'
+            }
+        })
+    </script>
+</body>
+</html>

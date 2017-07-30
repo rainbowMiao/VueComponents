@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .font{font-size: 30px}
+    </style>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="ele">
+
+    </div>
+    <script>
+        new Vue({
+            el:"#ele",
+//            接近编译器的创建元素方式
+            render(createElement){
+                return createElement(
+                    'div',
+                    {class:'font'},
+                    'hello world'
+                )
+            }
+        })
+    </script>
+</body>
+</html>
